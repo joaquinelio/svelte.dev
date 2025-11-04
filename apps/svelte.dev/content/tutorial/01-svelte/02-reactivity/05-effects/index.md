@@ -26,7 +26,7 @@ Let's say we want to use `setInterval` to keep track of how long the component h
 
 Click the 'speed up' button a few times and notice that `elapsed` ticks up faster, because we're calling `setInterval` each time `interval` gets smaller.
 
-If we then click the 'slow down' button... well, it doesn't work. That's because we're not clearing out the old intervals when the effect updates. We can fix that by returning a cleanup function:
+If we then click the 'slow down' button... well, it doesn't work. That's because we're not clearing out the old intervals when the effect updates — each click creates a new interval that keeps running in the background, and they quickly accumulate if we don’t stop them. We can fix that by returning a cleanup function:
 
 ```js
 /// file: App.svelte
